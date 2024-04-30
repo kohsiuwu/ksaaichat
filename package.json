@@ -1,23 +1,32 @@
 {
   "name": "ksaaichat",
   "version": "1.0.0",
+  "description": "A chat application integrating with OpenAI's GPT models.",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kohsiuwu/ksaaichat.git"
+  },
+  "author": "kohsiuwu",
+  "license": "ISC",
   "dependencies": {
+    "express": "^4.19.2",
     "body-parser": "^1.20.2",
     "dotenv": "^16.4.5",
     "ejs": "^3.1.10",
-    "express": "^4.19.2",
-    "fs": "^0.0.1-security",
-    "mammoth": "^1.7.2",
-    "node-fetch": "^2.7.0",
+    "node-fetch": "^3.2.4", // 更新至兼容 ESM 的版本
     "pdf-parse": "^1.1.1",
-    "punycode": "^2.3.1"
+    "mammoth": "^1.7.2"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": ""
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  },
+  "bugs": {
+    "url": "https://github.com/kohsiuwu/ksaaichat/issues"
+  },
+  "homepage": "https://github.com/kohsiuwu/ksaaichat#readme"
 }
