@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat with OpenAI</title>
+    <style>
+        #chat-container { max-width: 600px; margin: 50px auto; padding: 20px; border: 1px solid #ccc; }
+        #messages { list-style-type: none; padding: 0; }
+        #messages li { margin-bottom: 10px; padding: 10px; background-color: #f3f3f3; }
+        input[type="text"] { width: calc(100% - 22px); padding: 10px; }
+    </style>
+</head>
+<body>
+    <div id="chat-container">
+        <ul id="messages"></ul>
+        <input type="text" id="user-input" placeholder="Type your message..." onkeypress="handleKeyPress(event)">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+
+    <script>
+        function sendMessage() {
+            var userInput = document.getElementById('user-input');
+            var message = userInput.value;
+            userInput.value = ''; // Clear the input after sending
+            fetch('/read-file', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'}
+            })
+            .then(response => response.json())
+            .then(data => {
+                appendMessage('You: ' + message);
+                appendMessage('AI: ' + data.content); // Assuming the server returns the file content
+            })
+            .catch(error => console.error('Error:', error));
+        }
+
+        function appendMessage(message) {
+            var messages = document.getElementById('messages');
+            var messageElement = document.createElement('li');
+            messageElement.textContent = message;
+            messages.appendChild(messageElement);
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+    </script>
+</body>
+</html>

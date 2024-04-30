@@ -1,0 +1,23 @@
+{
+  "name": "ksaaichat",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "fs": "^0.0.1-security",
+    "mammoth": "^1.7.2",
+    "node-fetch": "^2.7.0",
+    "pdf-parse": "^1.1.1",
+    "punycode": "^2.3.1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
